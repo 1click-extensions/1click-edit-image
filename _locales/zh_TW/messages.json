@@ -1,8 +1,8 @@
 {
-    "popup_title": {"message": "Click on image you want to edit" },
+    "h2_title": {"message": "Click on the area or drag image to it" },
     "browser_action": {"message": "Edit image" },
-    "ext_desc": {"message": "Esit image from website" },
-    "ext_name": {"message": "1click edit web image" }
+    "ext_desc": {"message": "Edit image from your computer" },
+    "ext_name": {"message": "1click edit image" }
   }
   
   

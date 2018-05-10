@@ -9,3 +9,5 @@ var myDropzone = new Dropzone("div#upload", {
     },
     url:'stub'
 });
+h2 = document.getElementById('h2');
+h2.innerText = chrome.i18n.getMessage("h2_title") + '.';
