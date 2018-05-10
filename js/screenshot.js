@@ -106,7 +106,8 @@ var screenshot = {
       var realCallback = callback;
       screenshot.screens = [];
       screenshot.description = '';
-      api.callPopup({type: 'working'});
+
+
       callback = function () {
         window.setTimeout(realCallback, (parseInt(localStorage['delay'], 10) || 0) * 1000)
       };
@@ -147,7 +148,7 @@ var screenshot = {
       })
   },
   addScreen: function (data) {
-    if (api.stop) return;
+    
     screenshot.retries++;
     chrome.tabs.sendMessage(screenshot.thisTabId, $.extend({
       cropData: screenshot.cropData,
@@ -159,12 +160,10 @@ var screenshot = {
     }, data), screenshot.ans);
   },
   ans: function (mess) {
-    if (api.stop) {
-      return ;
-    }
+    
     if (!mess && chrome.runtime.lastError) {
       if (screenshot.retries > 1 && screenshot.scroll) {
-        api.callPopup({type: 'message', message: 'Sorry, we can not take a full screenshot of this webpage. This might be because it is not fully loaded. Please report this issue.'});
+        //api.callPopup({type: 'message', message: 'Sorry, we can not take a full screenshot of this webpage. This might be because it is not fully loaded. Please report this issue.'});
         return ;
       } else if (screenshot.retries > 1) {
         mess = {left:0,top:0,finish:true};
@@ -198,7 +197,7 @@ var screenshot = {
       if (chrome.runtime.lastError) {
         console.error(chrome.runtime.lastError);
       }
-      if (api.stop) return ;
+       ;
       if ((mess.top || parseInt(mess.top) == 0 )) {
         screenshot.screens.push({left: parseInt(mess.left), top: parseInt(mess.top), data: data});
       }
@@ -268,7 +267,7 @@ var screenshot = {
     var firstTime = true;
     var i = 0;
     loadImage = function (i) {
-      if (api.stop) return;
+      
       ctx = screenshot.canvas.getContext('2d');
       img[i] = $('<img tag=' + i + '/>');
       img[i].load(function () {
@@ -325,7 +324,7 @@ var screenshot = {
           }
           return;
         }
-        if (api.stop) return
+        
         loadImage(++i);
       });
       try {
@@ -335,7 +334,7 @@ var screenshot = {
       }
       //$(document.body).append('Image:' + i + ':<br/><img width=200px src=' + screens[i].data + ' /><hr>');
     }
-    if (api.stop) return
+    
     loadImage(0);
   }, 
 };
