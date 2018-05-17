@@ -1,1 +1,1 @@
-1click-edit-web-image
+1click-edit-image
