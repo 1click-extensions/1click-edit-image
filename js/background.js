@@ -12,7 +12,7 @@ chrome.browserAction.onClicked.addListener(function(tab){
  });
 
  chrome.runtime.onMessage.addListener(function (data, sender, callback) {
-   console.log(sender)
+  //console.log(sender)
   switch (data.data) {
       case 'imgUploaded':
         //console.log(data.imgData);
