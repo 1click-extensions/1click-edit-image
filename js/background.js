@@ -10,7 +10,7 @@ chrome.browserAction.onClicked.addListener(function(tab){
   //console.log('clicke');
   chrome.tabs.create({"url" : chrome.runtime.getURL('pages/upload.html')});  
  });
-
+ localStorage['pngjpg'] = "png";
  chrome.runtime.onMessage.addListener(function (data, sender, callback) {
   //console.log(sender)
   switch (data.data) {
