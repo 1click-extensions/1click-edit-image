@@ -14,6 +14,7 @@
         "default_icon": "images/browseraction.png",
         "default_title": "__MSG_browser_action__"
     },
-    "offline_enabled":true,
-    "default_locale": "en"
+    "offline_enabled": true,
+    "default_locale": "en",
+    "homepage_url": "https://1ce.org"
 }
